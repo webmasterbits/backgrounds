@@ -1,7 +1,19 @@
-<meta http-equiv="refresh" content="300;https://webmasterbits.github.io/backgrounds/ef-1/" />
+<meta http-equiv="refresh" content="300;https://webmasterbits.github.io/backgrounds/ef-5/" />
 <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 
 <style type="text/css">
+
+
+#time {
+	z-index: 99999;
+	position: absolute;
+	top: 50;
+	left: 50;
+	font-size: 60px;
+	color: #fff;
+	opacity: .5;
+}
+
 	html {
   height: 100%;
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
@@ -105,3 +117,33 @@
     24/7 CLASSICAL MUSIC LIVE
   </span>
 </div>
+
+<div id="time"></div>
+
+<script type="text/javascript">
+
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    var fiveMinutes = 60 * 5,
+        display = document.querySelector('#time');
+    startTimer(fiveMinutes, display);
+};
+
+
+</script>
